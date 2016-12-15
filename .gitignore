@@ -91,5 +91,12 @@ local_settings.py
 
 .env
 
+### Angular 2 ###
 
+typings
+app/**/*.js
+app/**/*.map
+node_modules
+jspm_packages
+bower_components
 
