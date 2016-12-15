@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'app-contactos-list',
-  templateUrl: './contactos-list.component.html',
-  styleUrls: ['./contactos-list.component.css']
+  selector: 'app-contactos-detail',
+  templateUrl: './contactos-detail.component.html',
+  styleUrls: ['./contactos-detail.component.css']
 })
-export class ContactosListComponent implements OnInit {
+export class ContactosDetailComponent implements OnInit {
 
   constructor(
 		private _route: ActivatedRoute,
