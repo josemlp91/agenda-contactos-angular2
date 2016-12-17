@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io
 
+
+
 ### OSX ###
 .DS_Store
 .AppleDouble
@@ -89,6 +91,8 @@ target/
 __pycache__/
 local_settings.py
 
+media/
+static/
 .env
 
 ### Angular 2 ###

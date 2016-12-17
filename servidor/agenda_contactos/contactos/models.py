@@ -17,3 +17,6 @@ class Contacto(models.Model):
 
     propietario = models.ForeignKey(User, null=True, blank=True)
     borrado = models.BooleanField(default=False)
+
+
+

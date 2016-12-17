@@ -13,7 +13,8 @@ class ContactoSerializer(serializers.ModelSerializer):
                   'fecha_nacimiento',
                   'telefono_fijo',
                   'telefono_movil',
-                  'email'
+                  'email',
+                  'imagen'
                   )
 
 
