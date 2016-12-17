@@ -1,8 +1,15 @@
 # Create your views here.
+import os
+
+from django.core.exceptions import ObjectDoesNotExist
+from django.core.files.base import ContentFile
 from rest_framework import generics
 from rest_framework import status
+from rest_framework.parsers import FileUploadParser
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
+from agenda_contactos import settings
 from contactos.models import Contacto
 from contactos.serializer import ContactoSerializer
 
@@ -12,7 +19,7 @@ class ContactosList(generics.ListAPIView):
     serializer_class = ContactoSerializer
 
 
-class ContactosCreate(generics.CreateAPIView):  
+class ContactosCreate(generics.CreateAPIView):
     queryset = Contacto.objects.filter(borrado=False)
     serializer_class = ContactoSerializer
 
@@ -36,3 +43,29 @@ class ContactosDelete(generics.DestroyAPIView):
         obj.borrado = True
         obj.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class ImagenContactoUpload(APIView):
+    parser_classes = (FileUploadParser,)
+
+    def put(self, request, id, format=None):
+        file_obj = request.data['file']
+        folder = request.path.replace("/", "_")
+        full_filename = os.path.join(settings.MEDIA_ROOT, id)
+        fout = open(full_filename, 'wb+')
+        file_content = ContentFile(file_obj.read())
+
+        try:
+            contacto = Contacto.objects.get(id=id)
+        except ObjectDoesNotExist:
+            return Response(status=204)
+
+
+        contacto.imagen = full_filename
+        contacto.save()
+
+        for chunk in file_content.chunks():
+            fout.write(chunk)
+        fout.close()
+
+        return Response(status=204)
