@@ -1,3 +1,11 @@
-<p>
-  contactos-details works!
-</p>
+
+<div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">   
+	
+	<div *ngIf="contacto" class="contacto-box">
+		<p>{{contacto.id}}</p>
+		<p>{{contacto.nombre}} {{contacto.primer_apellido}} {{contacto.segundo_apellido}}</p>
+		<p>{{contacto.telefono_fijo}}</p>
+		<p>{{contacto.telefono_movil}}</p>
+		<p>{{contacto.telefono_email}}</p>
+	</div>
+</div>

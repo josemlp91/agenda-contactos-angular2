@@ -1,12 +1,34 @@
-<h1>
-  {{title}}
-</h1>
+    <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+      <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation"></button>
+      <a class="navbar-brand" href="https://v4-alpha.getbootstrap.com/examples/dashboard/#">{{ title }}</a>
+      <div id="navbar">
+        <nav class="nav navbar-nav float-xs-left">
+          <a class="nav-item nav-link" [routerLink]="['/']">Pantalla principal</a>
+          <a class="nav-item nav-link" [routerLink]="['/']">Pefil</a>
+          <a class="nav-item nav-link" [routerLink]="['/']">Configuracion</a>
+          <a class="nav-item nav-link" [routerLink]="['/']">Ayuda</a>
+        </nav>
+        <form class="float-xs-right">
+          <input type="text" class="form-control" placeholder="Search...">
+        </form>
+      </div>
+    </nav>
 
-<nav id="nav">
-	<ul>
-		<li><a>Inicio</a></li>
-	</ul>
-</nav>
+    <div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+				<li class="active">
+				    <a [routerLink]="['/']">Listado contactos <span class="sr-only">(current)</span></a>
+				</li>
+				<li><a [routerLink]="['/']">Favoritos</a></li>
+				<li><a [routerLink]="['/']">Ventas</a></li>
+				<li><a [routerLink]="['/']">Opciones</a></li>
+				</ul>	
+			</div>
+		</div>
+	</div>
+      
 <section class="main">
 	<router-outlet></router-outlet>
 	<div class="clearfix"></div>

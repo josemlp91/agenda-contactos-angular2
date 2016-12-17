@@ -1,3 +1,38 @@
-<p>
-  contactos-list works!
-</p>
+
+<div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">   
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Telefono</th>
+          <th>Movil</th>
+          <th>Email</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contacto of contactos">
+          <td>{{contacto.id}}</td>
+          <td>{{contacto.nombre}} {{contacto.primer_apellido}}</td>
+          <td>{{contacto.telefono_fijo}}</td>
+          <td>{{contacto.telefono_movil}}</td>
+          <td>{{contacto.email}}</td>
+          <td>
+            <div class="dropdown open">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Acción
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" [routerLink]="['/contacto', contacto.id ]">Ver</a>
+                <a class="dropdown-item" [routerLink]="['/']">Editar</a>
+                <a class="dropdown-item" [routerLink]="['/']">Borrar</a>
+              </div>
+            </div>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

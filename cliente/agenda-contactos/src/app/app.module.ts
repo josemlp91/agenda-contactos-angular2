@@ -8,6 +8,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { ContactosListComponent } from './contactos-list/contactos-list.component';
 import { ContactosDetailComponent } from './contactos-detail/contactos-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { ContactosDetailComponent } from './contactos-detail/contactos-detail.co
     ContactosListComponent,
     ContactosDetailComponent
   ],
-  imports:      [ BrowserModule, HttpModule, FormsModule, routing ],
+  imports:      [ BrowserModule, NgbModule.forRoot(), HttpModule, FormsModule, routing ],
   providers:    [ appRoutingProviders ],
   bootstrap: [AppComponent]
 })

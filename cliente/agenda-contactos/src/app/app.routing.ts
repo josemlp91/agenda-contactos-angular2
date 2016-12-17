@@ -12,7 +12,7 @@ const appRoutes: Routes = [
 		pathMatch: 'full'
 	},
 	{path: "", component: ContactosListComponent},
-	{path: "contactos/:id", component: ContactosDetailComponent},
+	{path: "contacto/:id", component: ContactosDetailComponent},
 	
 ];
 
