@@ -12,6 +12,7 @@ class Contacto(models.Model):
     fecha_nacimiento = models.DateField(null=False, blank=True)
     telefono_fijo = models.CharField(null=False, blank=True, max_length=255)
     telefono_movil = models.CharField(null=False, blank=True, max_length=255)
+    email = models.EmailField(null=True, blank=True)
 
     propietario = models.ForeignKey(User, null=True, blank=True)
     borrado = models.BooleanField(default=False)

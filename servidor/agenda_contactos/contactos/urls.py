@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from contactos.views import ContactosList, ContactosCreate, ContactosGet
+from contactos.views import ContactosList, ContactosCreate, ContactosGet, ContactosEdit, ContactosDelete
 
 urlpatterns = [
-    url(r'', ContactosList.as_view(), name='index'),
+
     url(r'^list/', ContactosList.as_view(), name='list'),
     url(r'^add/', ContactosCreate.as_view(), name='add'),
     url(r'^get/(?P<pk>[\d]+)/', ContactosGet.as_view(), name='get'),
+    url(r'^edit/(?P<pk>[\d]+)/', ContactosEdit.as_view(), name='edit'),
+    url(r'^delete/(?P<pk>[\d]+)/', ContactosDelete.as_view(), name='delete'),
+
 ]

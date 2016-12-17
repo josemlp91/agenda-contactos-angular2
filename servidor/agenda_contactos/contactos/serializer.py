@@ -12,7 +12,8 @@ class ContactoSerializer(serializers.ModelSerializer):
                   'segundo_apellido',
                   'fecha_nacimiento',
                   'telefono_fijo',
-                  'telefono_movil'
+                  'telefono_movil',
+                  'email'
                   )
 
 
