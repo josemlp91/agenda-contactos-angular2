@@ -14,6 +14,9 @@ class ContactoSerializer(serializers.ModelSerializer):
                   'telefono_fijo',
                   'telefono_movil',
                   'email',
+                  'puesto',
+                  'genero',
+                  'direccion',
                   'imagen'
                   )
 

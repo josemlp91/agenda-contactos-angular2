@@ -7,6 +7,9 @@ export class Contacto{
 		public fecha_nacimiento:string,
 		public telefono_fijo:string,
 		public telefono_movil:string,
-		public email:string
+		public email:string,
+		public direccion:string,
+		public puesto:string,
+		public genero:string,
 	){}
 }
