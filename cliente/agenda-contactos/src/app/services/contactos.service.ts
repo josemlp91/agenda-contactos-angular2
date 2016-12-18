@@ -7,17 +7,17 @@ import {Contacto} from "../models/contacto.model";
 @Injectable()
 export class ContactosService {
 
-	private contactos_api_url = "http://localhost:8080/contactos/";
+	private contactos_api_url = "http://localhost:4200/api/contactos/";
 
 	constructor(private _http: Http){}
 
 	getContactos(){
-		let uri = this.contactos_api_url + "list";  
+		let uri = this.contactos_api_url + "list/";  
 		return this._http.get(uri).map(res => res.json());
 	}
 
 	getContacto(id: string){
-		let uri = this.contactos_api_url + "get/" + id;
+		let uri = this.contactos_api_url + "get/" + id + "/";
 		return this._http.get(uri).map(res => res.json());
 	}
 
