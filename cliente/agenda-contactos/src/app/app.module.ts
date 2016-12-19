@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { ContactosListComponent } from './contactos-list/contactos-list.component';
 import { ContactosDetailComponent } from './contactos-detail/contactos-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactosCreateEditComponent } from './contactos-create-edit/contactos-create-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactosListComponent,
-    ContactosDetailComponent
+    ContactosDetailComponent,
+    ContactosCreateEditComponent
   ],
   imports:      [ BrowserModule, NgbModule.forRoot(), HttpModule, FormsModule, routing ],
   providers:    [ appRoutingProviders ],

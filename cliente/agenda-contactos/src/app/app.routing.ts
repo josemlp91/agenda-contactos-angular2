@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {ContactosListComponent} from "./contactos-list/contactos-list.component";
 import {ContactosDetailComponent} from "./contactos-detail/contactos-detail.component";
+import {ContactosCreateEditComponent} from "./contactos-create-edit/contactos-create-edit.component";
 
 
 const appRoutes: Routes = [
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
 	},
 	{path: "", component: ContactosListComponent},
 	{path: "contacto/:id", component: ContactosDetailComponent},
+	{path: "crear-contacto", component: ContactosCreateEditComponent},
 	
 ];
 
