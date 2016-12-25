@@ -1,0 +1,24 @@
+      
+  <ul id="slide-out" class="side-nav">
+    <li>
+      <div class="userView">
+        <div class="background">
+          <img src="images/office.jpg">
+        </div>
+        <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+        <a href="#!name"><span class="white-text name">José Miguel</span></a>
+        <a href="#!email"><span class="white-text email">josmilope@gmail.com</span></a>
+      </div>
+    </li>
+    <li>
+      <a [routerLink]="['/']"><i class="material-icons">account_circle</i>Contactos</a>
+    </li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+
+  
+<section class="main">
+<button class="waves-effect waves-light btn">Test Button</button>
+	<router-outlet></router-outlet>
+	<div class="clearfix"></div>
+</section>

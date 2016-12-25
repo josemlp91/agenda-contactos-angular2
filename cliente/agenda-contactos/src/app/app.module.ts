@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent } from './app.component';
+import {MaterializeModule} from "angular2-materialize";
+
 import { ContactosListComponent } from './contactos-list/contactos-list.component';
 import { ContactosDetailComponent } from './contactos-detail/contactos-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -18,7 +20,7 @@ import { ContactosCreateEditComponent } from './contactos-create-edit/contactos-
     ContactosDetailComponent,
     ContactosCreateEditComponent
   ],
-  imports:      [ BrowserModule, NgbModule.forRoot(), HttpModule, FormsModule, routing ],
+  imports:      [ BrowserModule, MaterializeModule, HttpModule, FormsModule, routing ],
   providers:    [ appRoutingProviders ],
   bootstrap: [AppComponent]
 })
