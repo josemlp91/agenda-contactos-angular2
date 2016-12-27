@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response, Headers} from "@angular/http";
+import {Http, Response, RequestOptions, Headers} from "@angular/http";
 import "rxjs/add/operator/map";
 import {Observable} from "rxjs/Observable";
 import {Contacto} from "../models/contacto.model";
@@ -22,7 +22,12 @@ export class ContactosService {
 	}
 
 	addContacto(contacto: Contacto) {
-		return null; // TODO
+		let uri = this.contactos_api_url + "add/";
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let body = JSON.stringify(contacto);
+    	let options = new RequestOptions({ headers: headers });
+
+		return this._http.post(uri, body, options).map(res => res.json());
 	}
 
 	editContacto(id: string, contacto: Contacto) {
@@ -34,3 +39,4 @@ export class ContactosService {
 	}
 
 }
+

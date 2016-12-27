@@ -1,32 +1,47 @@
+ 
+ <pre>{{contacto | json}}</pre>
+
  <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main"> 
 	 <div class="card">
-		<form>
+		<form #formContacto="ngForm" (ngSubmit)="onSubmit()">
 			<fieldset>
 			<!-- Form Name -->
 			 <h3 class="panel-title">Crear Contacto</h3>
 
 			<!-- Text input-->
 			<div class="input-field">
-			  <label for="nombre">Nombre</label>  
-			  <input id="nombre" name="nombre" type="text" placeholder="Nombre">
+			  
+			  <input 	id="nombre"
+			  			[ngClass]='{invalid: errores_contacto.nombre[0]!=""}'
+						name="nombre"
+						type="text"
+						placeholder="Nombre"
+						#nombre="ngModel"
+						[(ngModel)]="contacto.nombre">
+
+			  <label for="nombre">Nombre</label>
+			  <div *ngFor="let error of errores_contacto.nombre" class="error">{{error}}</div>
 			</div>
 
 			<!-- Text input-->
 			<div class="input-field">
 			  <label for="primer_apellido">Primer Apellido</label>  
-			  <input id="primer_apellido" name="primer_apellido" type="text" placeholder="Primer Apellido">
+			  <input id="primer_apellido" #primer_apellido="ngModel" [(ngModel)]="contacto.primer_apellido" 
+			  	name="primer_apellido" type="text" placeholder="Primer Apellido">
 			</div>
 
 			<!-- Text input-->
 			<div class="input-field">
 			  <label  for="segundo_apellido">Segundo Apellido</label>  
-			  <input id="segundo_apellido" name="segundo_apellido" type="text" placeholder="Segundo Apellido">
+			  <input id="segundo_apellido"  #segundo_apellido="ngModel" [(ngModel)]="contacto.segundo_apellido"
+			   	name="segundo_apellido" type="text" placeholder="Segundo Apellido">
 			</div>
 
 			<!-- Text input-->
 			<div class="input-field">
 			  <label  for="puesto">Puesto</label>  
-			  <input id="puesto" name="puesto" type="text" placeholder="Puesto">
+			  <input id="puesto" #puesto="ngModel" [(ngModel)]="contacto.puesto"
+			  	 name="puesto" type="text" placeholder="Puesto">
 			</div>
 
 			<!-- Select Basic -->
@@ -65,6 +80,8 @@
 			</div>
 
 			</fieldset>
+
+			<button class="waves-effect waves-light btn">GUARDAR</button>
 		</form>
 	</div>
 </div>
