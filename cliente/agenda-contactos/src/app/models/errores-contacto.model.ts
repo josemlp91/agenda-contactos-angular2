@@ -22,4 +22,5 @@ export class ErroresContacto{
 		this.puesto=[""];
 		this.genero=[""];
         }
+
 }

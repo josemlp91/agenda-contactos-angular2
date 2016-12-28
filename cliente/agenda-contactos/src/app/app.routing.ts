@@ -15,6 +15,7 @@ const appRoutes: Routes = [
 	{path: "", component: ContactosListComponent},
 	{path: "contacto/:id", component: ContactosDetailComponent},
 	{path: "crear-contacto", component: ContactosCreateEditComponent},
+	{path: "editar-contacto/:id", component: ContactosCreateEditComponent},
 	
 ];
 

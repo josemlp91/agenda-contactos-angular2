@@ -3,85 +3,158 @@
 
  <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main"> 
 	 <div class="card">
-		<form #formContacto="ngForm" (ngSubmit)="onSubmit()">
+		<form #formContacto="ngForm">
 			<fieldset>
-			<!-- Form Name -->
-			 <h3 class="panel-title">Crear Contacto</h3>
+				
+				<!-- Form Name -->
+				<h3 class="panel-title">{{titulo}}</h3>
 
 			<!-- Text input-->
 			<div class="input-field">
-			  
-			  <input 	id="nombre"
-			  			[ngClass]='{invalid: errores_contacto.nombre[0]!=""}'
+				<input 	id="nombre"
 						name="nombre"
 						type="text"
 						placeholder="Nombre"
+						[ngClass]='{invalid: errores_contacto.nombre[0]!=""}'
 						#nombre="ngModel"
-						[(ngModel)]="contacto.nombre">
+						[(ngModel)]="contacto.nombre" />
 
-			  <label for="nombre">Nombre</label>
-			  <div *ngFor="let error of errores_contacto.nombre" class="error">{{error}}</div>
+			  	<label for="nombre">Nombre</label>
+			  	<div *ngFor="let error of errores_contacto.nombre" class="error">{{error}}</div>
 			</div>
 
 			<!-- Text input-->
 			<div class="input-field">
-			  <label for="primer_apellido">Primer Apellido</label>  
-			  <input id="primer_apellido" #primer_apellido="ngModel" [(ngModel)]="contacto.primer_apellido" 
-			  	name="primer_apellido" type="text" placeholder="Primer Apellido">
+			  	<input  id="primer_apellido"
+			  			name="primer_apellido"
+			  			type="text"
+			  			placeholder="Primer Apellido"
+			  			
+						#primer_apellido="ngModel"
+			  			[(ngModel)]="contacto.primer_apellido" />
+
+				<label for="primer_apellido">Primer Apellido</label>
+				<div *ngFor="let error of errores_contacto.primer_apellido" class="error">{{error}}</div>  
 			</div>
 
 			<!-- Text input-->
 			<div class="input-field">
-			  <label  for="segundo_apellido">Segundo Apellido</label>  
-			  <input id="segundo_apellido"  #segundo_apellido="ngModel" [(ngModel)]="contacto.segundo_apellido"
-			   	name="segundo_apellido" type="text" placeholder="Segundo Apellido">
+				<input  id="segundo_apellido"
+			   			name="segundo_apellido"
+			   			type="text"
+			   			placeholder="Segundo Apellido"
+			   			
+						#segundo_apellido="ngModel"
+			    		[(ngModel)]="contacto.segundo_apellido" />
+
+			   	<label for="segundo_apellido">Segundo Apellido</label>
+			   	<div *ngFor="let error of errores_contacto.segundo_apellido" class="error">{{error}}</div>   
 			</div>
 
 			<!-- Text input-->
 			<div class="input-field">
-			  <label  for="puesto">Puesto</label>  
-			  <input id="puesto" #puesto="ngModel" [(ngModel)]="contacto.puesto"
-			  	 name="puesto" type="text" placeholder="Puesto">
+			  	<input 	id="puesto"
+			  	 		name="puesto"
+			  	 		type="text"
+			  	 		placeholder="Puesto"
+			  	 		
+						#puesto="ngModel" 
+			  			[(ngModel)]="contacto.puesto" />
+
+			  	<label for="puesto">Puesto</label>
+			  	<div *ngFor="let error of errores_contacto.puesto" class="error">{{error}}</div>
 			</div>
 
 			<!-- Select Basic -->
-			 
-			 
-			  <div class="row">
-			   <div class="col s4"><p>Genero</p></div>
-			   <div class="input-field col s4">
-			      <input name="group1" type="radio" id="test1" />
-			      <label for="test1">Hombre</label>
-			    </div>
-			    <div class="input-field col s4">
-			      <input name="group1" type="radio" id="test2" />
-			      <label for="test2">Mujer</label>
-			    </div>
-			  </div>
+			<div class="row">
+				<div class="col s4"><p>Genero</p></div>
+				<div class="input-field col s4">
+				  <input name="group1"
+				  		 type="radio"
+				  		 id="test1" 
+				  		 #genero="ngModel" 
+			  			 [(ngModel)]="contacto.genero" />
+				  <label for="test1">Hombre</label>
+				</div>
+				<div class="input-field col s4">
+				  <input name="group1"
+				  		 type="radio"
+				  		 id="test2"
+				  		  #genero="ngModel" 
+			  			 [(ngModel)]="contacto.genero" />
+				  <label for="test2">Mujer</label>
+				</div>
+			</div>
 
 			 <br>
+			
+			<div class="input-field">	 
+			 	<input 	id="fecha_nacimiento"
+			 			type="text"
+			 			name="fecha_nacimiento"
+			 		 	materialize="pickadate"
+			 		 	
+                   		[materializeParams]="[{selectMonths: true, selectYears: 15}]" 
+			 	 		#fecha_nacimiento="ngModel"
+			 	 		[(ngModel)]="contacto.fecha_nacimiento" 
+			 			class="datepicker" />
 
-			<!-- Text input-->
-			<div class="input-field">
-			  <label for="telefono_movil">Teléfono Movil</label>  
-			  <input id="telefono_movil" name="telefono_movil" type="text" placeholder="Teléfono Movil">
+			 	<label  for="fecha_nacimiento">Fecha Nacimiento</label>
+			 	<div *ngFor="let error of errores_contacto.fecha_nacimiento" class="error">{{error}}</div> 
 			</div>
 
 			<!-- Text input-->
 			<div class="input-field">
-			  <label for="telefono_fijo">Teléfono Fijo</label>  
-			  <input id="telefono_fijo" name="telefono_fijo" type="text" placeholder="Teléfono Fijo">
+			  	<input id="telefono_movil"
+			  		 
+			  		 #telefono_movil="ngModel"
+			  		 [(ngModel)]="contacto.telefono_movil"
+			  		 name="telefono_movil"
+			  		 type="text"
+			  		 placeholder="Teléfono Movil" />
+
+				<label for="telefono_movil">Teléfono Movil</label>
+				<div *ngFor="let error of errores_contacto.telefono_movil" class="error">{{error}}</div> 
+			</div>
+
+			<!-- Text input-->
+			<div class="input-field">		  
+				<input  id="telefono_fijo"
+						
+						#telefono_fijo="ngModel"
+						[(ngModel)]="contacto.telefono_fijo"
+			   			name="telefono_fijo"
+			   			type="text"
+			   			placeholder="Teléfono Fijo" />
+
+			   	<label for="telefono_fijo">Teléfono Fijo</label>
+			   	<div *ngFor="let error of errores_contacto.telefono_fijo" class="error">{{error}}</div>
 			</div>
 
 			<!-- Text input-->
 			<div class="input-field">
-			  <label for="direccion">Dirección</label>  
-			  <input id="direccion" name="direccion" type="text" placeholder="Dirección">
+				<input  id="direccion"
+						
+						#direccion="ngModel"
+						[(ngModel)]="contacto.direccion"
+			   			name="direccion"
+			   			type="text"
+			   			placeholder="Dirección" />
+
+				<label for="direccion">Dirección</label>
+				<div *ngFor="let error of errores_contacto.telefono_fijo" class="error">{{error}}</div>
 			</div>
 
 			</fieldset>
 
-			<button class="waves-effect waves-light btn">GUARDAR</button>
+			<a *ngIf="!editing" (click)="createContacto()" class="waves-effect waves-light btn">
+				GUARDAR
+			</a>
+			
+			<a *ngIf="editing"  (click)="editContacto()" class="waves-effect waves-light btn">
+				EDITAR
+			</a>
+
 		</form>
 	</div>
 </div>

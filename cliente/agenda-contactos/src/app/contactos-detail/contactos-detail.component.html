@@ -41,16 +41,16 @@
                         <td><a href="{{contacto.email}}">{{contacto.email}}</a></td>
                       </tr>
 
-					  <tr>
+					            <tr>
                         <td>Número Teléfono:</td>
                         <td>{{contacto.telefono_fijo}} (Fijo)<br><br>{{contacto.telefono_movil}} (Movil)</td>     
                       </tr>
                      
                     </tbody>
                   </table>
-                  <a href="#" class="btn btn-danger">Eliminar</a>
-                  <a href="#" class="btn btn-primary">Editar</a>
-                  <a href="#" class="btn btn-primary">Favoritos</a>
+                  <!-- <a href="#" class="btn btn-danger">Eliminar</a> -->
+                  <a  [routerLink]="['/editar-contacto', contacto.id ]"  class="btn btn-primary">Editar</a>
+                  <!-- <a href="#" class="btn btn-primary">Favoritos</a> -->
                 </div>
               </div>
             </div>

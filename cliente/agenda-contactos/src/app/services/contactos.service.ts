@@ -13,11 +13,13 @@ export class ContactosService {
 
 	getContactos(){
 		let uri = this.contactos_api_url + "list/";  
+		
 		return this._http.get(uri).map(res => res.json());
 	}
 
 	getContacto(id: string){
 		let uri = this.contactos_api_url + "get/" + id + "/";
+
 		return this._http.get(uri).map(res => res.json());
 	}
 
@@ -31,7 +33,12 @@ export class ContactosService {
 	}
 
 	editContacto(id: string, contacto: Contacto) {
-		return null; // TODO
+		let uri = this.contactos_api_url + "edit/" + id + "/";
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let body = JSON.stringify(contacto);
+    	let options = new RequestOptions({ headers: headers });
+
+		return this._http.put(uri, body, options).map(res => res.json());
 	}
 
 	deleteContacto(id: string){
