@@ -4,7 +4,9 @@ import os
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files.base import ContentFile
 from rest_framework import generics
+from rest_framework import permissions
 from rest_framework import status
+from rest_framework.authentication import BasicAuthentication
 from rest_framework.parsers import FileUploadParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -15,26 +17,36 @@ from contactos.serializer import ContactoSerializer
 
 
 class ContactosList(generics.ListAPIView):
+    permission_classes = (permissions.AllowAny,)
+    authentication_classes = (BasicAuthentication,)
     queryset = Contacto.objects.filter(borrado=False)
     serializer_class = ContactoSerializer
 
 
 class ContactosCreate(generics.CreateAPIView):
+    permission_classes = (permissions.AllowAny,)
+    authentication_classes = (BasicAuthentication,)
     queryset = Contacto.objects.filter(borrado=False)
     serializer_class = ContactoSerializer
 
 
 class ContactosGet(generics.RetrieveAPIView):
+    permission_classes = (permissions.AllowAny,)
+    authentication_classes = (BasicAuthentication,)
     queryset = Contacto.objects.filter(borrado=False)
     serializer_class = ContactoSerializer
 
 
 class ContactosEdit(generics.UpdateAPIView):
+    permission_classes = (permissions.AllowAny,)
+    authentication_classes = (BasicAuthentication,)
     queryset = Contacto.objects.filter(borrado=False)
     serializer_class = ContactoSerializer
 
 
 class ContactosDelete(generics.DestroyAPIView):
+    permission_classes = (permissions.AllowAny,)
+    authentication_classes = (BasicAuthentication,)
     queryset = Contacto.objects.filter(borrado=False)
     serializer_class = ContactoSerializer
 
