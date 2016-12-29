@@ -12,13 +12,15 @@ import { ContactosListComponent } from './contactos-list/contactos-list.componen
 import { ContactosDetailComponent } from './contactos-detail/contactos-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactosCreateEditComponent } from './contactos-create-edit/contactos-create-edit.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactosListComponent,
     ContactosDetailComponent,
-    ContactosCreateEditComponent
+    ContactosCreateEditComponent,
+    LoginComponent
   ],
   imports:      [ BrowserModule, MaterializeModule, HttpModule, FormsModule, routing ],
   providers:    [ appRoutingProviders ],
