@@ -13,6 +13,8 @@ import { ContactosDetailComponent } from './contactos-detail/contactos-detail.co
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactosCreateEditComponent } from './contactos-create-edit/contactos-create-edit.component';
 import { LoginComponent } from './login/login.component';
+import { LocalStorageModule } from 'angular-2-local-storage';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,17 @@ import { LoginComponent } from './login/login.component';
     ContactosCreateEditComponent,
     LoginComponent
   ],
-  imports:      [ BrowserModule, MaterializeModule, HttpModule, FormsModule, routing ],
+  imports:      [ BrowserModule,
+                  MaterializeModule,
+                  HttpModule,
+                  FormsModule,
+                  routing,
+                  LocalStorageModule.withConfig({
+                    prefix: 'my-app',
+                    storageType: 'localStorage'
+                    })
+                  ],
+                  
   providers:    [ appRoutingProviders ],
   bootstrap: [AppComponent]
 })
