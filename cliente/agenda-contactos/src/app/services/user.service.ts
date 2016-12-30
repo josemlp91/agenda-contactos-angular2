@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 export class UserService {
 
   private loggedIn = false;
-  private contactos_api_url = "http://localhost:4200/api";
+  private contactos_api_url = "/api";
 
   constructor(private http: Http) {
     this.loggedIn = !!localStorage.getItem('auth_token');

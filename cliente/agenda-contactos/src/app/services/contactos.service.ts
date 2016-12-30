@@ -7,7 +7,7 @@ import {Contacto} from "../models/contacto.model";
 @Injectable()
 export class ContactosService {
 
-	private contactos_api_url = "http://localhost:4200/api/contactos/";
+	private contactos_api_url = "/api/contactos/";
 
 	constructor(private _http: Http){}
 
