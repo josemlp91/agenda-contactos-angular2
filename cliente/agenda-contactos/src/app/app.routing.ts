@@ -6,6 +6,7 @@ import {ContactosDetailComponent} from "./contactos-detail/contactos-detail.comp
 import {ContactosCreateEditComponent} from "./contactos-create-edit/contactos-create-edit.component";
 import {LoginComponent} from "./login/login.component";
 
+import {AuthGuard} from "./logged-in.guard";
 
 const appRoutes: Routes = [
 	{
@@ -14,15 +15,16 @@ const appRoutes: Routes = [
 		pathMatch: 'full'
 	},
 
-	
-	{path: "", component: ContactosListComponent},
+	//PUBLIC
 	{path: "login", component: LoginComponent},
-	{path: "contacto/:id", component: ContactosDetailComponent},
-	{path: "crear-contacto", component: ContactosCreateEditComponent},
-	{path: "editar-contacto/:id", component: ContactosCreateEditComponent},
+
+	// PRIVATES
+	{path: "", component: ContactosListComponent, canActivate: [AuthGuard]},
+	{path: "contacto/:id", component: ContactosDetailComponent, canActivate: [AuthGuard]},
+	{path: "crear-contacto", component: ContactosCreateEditComponent, canActivate: [AuthGuard]},
+	{path: "editar-contacto/:id", component: ContactosCreateEditComponent, canActivate: [AuthGuard]},
 	
 ];
 
 export const appRoutingProviders: any[] = [];
-
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

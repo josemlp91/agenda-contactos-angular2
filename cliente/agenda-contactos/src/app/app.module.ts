@@ -6,15 +6,18 @@ import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent } from './app.component';
-import {MaterializeModule} from "angular2-materialize";
+import { MaterializeModule } from "angular2-materialize";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ContactosListComponent } from './contactos-list/contactos-list.component';
 import { ContactosDetailComponent } from './contactos-detail/contactos-detail.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactosCreateEditComponent } from './contactos-create-edit/contactos-create-edit.component';
+
 import { LoginComponent } from './login/login.component';
 import { LocalStorageModule } from 'angular-2-local-storage';
 
+import {AuthGuard} from "./logged-in.guard";
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,7 @@ import { LocalStorageModule } from 'angular-2-local-storage';
                     })
                   ],
                   
-  providers:    [ appRoutingProviders ],
+  providers:    [ appRoutingProviders, UserService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
