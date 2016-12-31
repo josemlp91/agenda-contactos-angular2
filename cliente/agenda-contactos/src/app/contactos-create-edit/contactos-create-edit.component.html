@@ -1,5 +1,5 @@
  
- <pre>{{contacto | json}}</pre>
+<!-- <pre>{{contacto | json}}</pre> -->
 
  <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main"> 
 	 <div class="card">
@@ -65,26 +65,23 @@
 			  	<div *ngFor="let error of errores_contacto.puesto" class="error">{{error}}</div>
 			</div>
 
-			<!-- Select Basic -->
+			<!-- Select Basic 
 			<div class="row">
 				<div class="col s4"><p>Genero</p></div>
 				<div class="input-field col s4">
-				  <input name="group1"
-				  		 type="radio"
-				  		 id="test1" 
-				  		 #genero="ngModel" 
+				  <input type="radio"  
+			  			 value="M"
 			  			 [(ngModel)]="contacto.genero" />
-				  <label for="test1">Hombre</label>
+				  <label>Hombre</label>
 				</div>
 				<div class="input-field col s4">
-				  <input name="group1"
-				  		 type="radio"
-				  		 id="test2"
-				  		  #genero="ngModel" 
+				  <input type="radio"
+				  		 value="F" 
 			  			 [(ngModel)]="contacto.genero" />
 				  <label for="test2">Mujer</label>
 				</div>
 			</div>
+			-->
 
 			 <br>
 			
@@ -93,8 +90,7 @@
 			 			type="text"
 			 			name="fecha_nacimiento"
 			 		 	materialize="pickadate"
-			 		 	
-                   		[materializeParams]="[{selectMonths: true, selectYears: 15}]" 
+                   		[materializeParams]="[{selectMonths: true, format: 'yyyy-mm-dd', selectYears: 15}]" 
 			 	 		#fecha_nacimiento="ngModel"
 			 	 		[(ngModel)]="contacto.fecha_nacimiento" 
 			 			class="datepicker" />

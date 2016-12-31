@@ -66,6 +66,7 @@ export class ContactosCreateEditComponent implements OnInit {
 					let response_contacto = <any>response;
 					if (response_contacto.id!=null){
 						toast("Nuevo contacto creado!");
+						this._router.navigate(["/"]);
 					}
 				},
 				error => {
@@ -76,7 +77,7 @@ export class ContactosCreateEditComponent implements OnInit {
 					}
 				}
 			);
-			this._router.navigate(["/"]);
+			
 	}
 
 
@@ -86,6 +87,7 @@ export class ContactosCreateEditComponent implements OnInit {
 					let response_contacto = <any>response;
 					if (response_contacto.id!=null){
 						toast("Contato editado!");
+						this._router.navigate(["/"]);
 					}
 				},
 				error => {
@@ -96,7 +98,7 @@ export class ContactosCreateEditComponent implements OnInit {
 					}
 				}
 			);
-			this._router.navigate(["/"]);
+			
 	}
 	
 }

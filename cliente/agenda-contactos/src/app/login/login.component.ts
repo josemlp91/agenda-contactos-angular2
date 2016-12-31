@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
+import { toast } from "angular2-materialize";
 
 import { UserService } from '../services/user.service';
 
@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
   	private _route: ActivatedRoute,
-	private _router: Router,
-	private userService: UserService) { }
+	  private _router: Router,
+	  private userService: UserService) { }
 
 
   ngOnInit() {
@@ -31,9 +31,13 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.username, this.password).subscribe((result) => {
     	console.log(result);
 
-		if (result) {
-			console.log("LOGIN!!"); // TEST
-		}
+  		if (result) {
+        this._router.navigate(["/"]);
+  			//console.log("LOGIN!!"); // TEST
+  		}
+      else{
+        toast("Login erroneo");
+      }
     });
   }
 

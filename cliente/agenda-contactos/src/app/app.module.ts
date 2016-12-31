@@ -14,8 +14,6 @@ import { ContactosDetailComponent } from './contactos-detail/contactos-detail.co
 import { ContactosCreateEditComponent } from './contactos-create-edit/contactos-create-edit.component';
 
 import { LoginComponent } from './login/login.component';
-import { LocalStorageModule } from 'angular-2-local-storage';
-
 import {AuthGuard} from "./logged-in.guard";
 import { UserService } from './services/user.service';
 
@@ -32,10 +30,6 @@ import { UserService } from './services/user.service';
                   HttpModule,
                   FormsModule,
                   routing,
-                  LocalStorageModule.withConfig({
-                    prefix: 'my-app',
-                    storageType: 'localStorage'
-                    })
                   ],
                   
   providers:    [ appRoutingProviders, UserService, AuthGuard ],
