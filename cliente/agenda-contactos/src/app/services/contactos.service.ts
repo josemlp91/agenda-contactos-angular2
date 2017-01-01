@@ -12,20 +12,34 @@ export class ContactosService {
 	constructor(private _http: Http){}
 
 	getContactos(){
-		let uri = this.contactos_api_url + "list/";  
-		
-		return this._http.get(uri).map(res => res.json());
+		let uri = this.contactos_api_url + "list/";
+
+		let headers = new Headers();
+    	headers.append('Content-Type', 'application/json');
+    	let authToken = localStorage.getItem('auth_token');
+    	headers.append('Authorization', `Token ${authToken}`);
+
+		return this._http.get(uri, { headers }).map(res => res.json());
 	}
 
 	getContacto(id: string){
 		let uri = this.contactos_api_url + "get/" + id + "/";
 
-		return this._http.get(uri).map(res => res.json());
+		let headers = new Headers();
+    	headers.append('Content-Type', 'application/json');
+    	let authToken = localStorage.getItem('auth_token');
+    	headers.append('Authorization', `Token ${authToken}`);
+
+		return this._http.get(uri, { headers }).map(res => res.json());
 	}
 
 	addContacto(contacto: Contacto) {
 		let uri = this.contactos_api_url + "add/";
 		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let authToken = localStorage.getItem('auth_token');
+    	headers.append('Authorization', `Token ${authToken}`);
+
+
 		let body = JSON.stringify(contacto);
     	let options = new RequestOptions({ headers: headers });
 

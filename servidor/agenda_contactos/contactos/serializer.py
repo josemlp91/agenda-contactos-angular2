@@ -17,7 +17,8 @@ class ContactoSerializer(serializers.ModelSerializer):
                   'puesto',
                   'genero',
                   'direccion',
-                  'imagen'
+                  'imagen',
+                  'propietario'
                   )
 
 
